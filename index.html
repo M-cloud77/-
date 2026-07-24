@@ -1,160 +1,241 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ميثاق | منصة الاعتماد المؤسسي والبرامجي</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة ميثاق - الصفحة الرئيسية</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            direction: rtl;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* الهيدر واللوجو */
+        header {
+            background: #0f172a;
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-sub {
+            color: #38bdf8;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* القائمة الرئيسية */
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-right: 18px;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        /* القسم الرئيسي (Hero Section) */
+        .hero {
+            text-align: center;
+            padding: 90px 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            border-bottom: 4px solid #0284c7;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
+            color: #f8fafc;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background: #0284c7;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+        }
+
+        .hero-btn:hover {
+            background: #0369a1;
+            transform: translateY(-2px);
+        }
+
+        /* قسم المميزات / عن المنصة */
+        .features {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            flex-grow: 1;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card h3 {
+            color: #0f172a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* الفوتر */
+        footer {
+            background: #0f172a;
+            color: #64748b;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            margin-top: auto;
+            border-top: 1px solid #1e293b;
+        }
+    </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="brand">
-      <svg class="seal-mini" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-        <circle cx="50" cy="50" r="46" stroke="#E4C567" stroke-width="4"/>
-        <circle cx="50" cy="50" r="34" stroke="#E4C567" stroke-width="2"/>
-        <path d="M50 30 L56 46 L73 46 L59 56 L64 72 L50 62 L36 72 L41 56 L27 46 L44 46 Z" fill="#E4C567"/>
-      </svg>
-      ميثاق
-    </a>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="services.html">خدمات الاعتماد</a></li>
-        <li><a href="contact.html">تواصل معنا</a></li>
-      </ul>
-    </nav>
-    <button class="nav-toggle" aria-label="فتح القائمة"><span></span></button>
-  </div>
-</header>
+    <!-- الهيدر واللوجو -->
+    <header>
+        <a href="index.html" class="brand">
+            <!-- الشعار (Logo Icon) -->
+            <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100" height="100" rx="22" fill="url(#grad)" />
+                <path d="M30 68V32L50 50L70 32V68" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="50" cy="58" r="4" fill="#38bdf8"/>
+                <defs>
+                    <linearGradient id="grad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#0284c7"/>
+                        <stop offset="1" stop-color="#0f172a"/>
+                    </linearGradient>
+                </defs>
+            </svg>
 
-<section class="hero">
-  <div class="wrap hero-inner">
-    <div>
-      <span class="eyebrow">الاعتماد المؤسسي والبرامجي</span>
-      <h1>نبني <em>ثقافة الجودة</em><br>داخل مؤسستك التعليمية</h1>
-      <p class="lead">ميثاق تُرافق الكليات والجامعات في رحلتها نحو الاعتماد الأكاديمي، من تحليل الفجوة أمام المعايير المرجعية القياسية وحتى تجهيز ملف التقويم الذاتي الكامل.</p>
-      <div class="btn-row">
-        <a href="contact.html" class="btn btn-gold">اطلب استشارة أولية</a>
-        <a href="services.html" class="btn btn-outline">تصفح خدمات الاعتماد</a>
-      </div>
-    </div>
-    <div class="seal-wrap">
-      <svg class="seal" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-        <circle cx="100" cy="100" r="92" stroke="#C9A227" stroke-width="3"/>
-        <circle cx="100" cy="100" r="78" stroke="#C9A227" stroke-width="1.5" stroke-dasharray="4 6"/>
-        
-        <!-- النجمة -->
-        <path d="M100 40 L108 61 L131 61 L112 75 L119 96 L100 83 L81 96 L88 75 L69 61 L92 61 Z" fill="#C9A227"/>
-        
-        <!-- رسمة الكتاب المفتوح -->
-        <g stroke="#C9A227" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
-          <path d="M100 115 C90 110 75 110 65 115 L65 140 C75 135 90 135 100 140 C110 135 125 135 135 140 L135 115 C125 110 110 110 100 115 Z"/>
-          <line x1="100" y1="115" x2="100" y2="140" />
-        </g>
+            <!-- اسم اللوجو والتوقيع -->
+            <div class="brand-text">
+                <span class="brand-title">Mohamed Al-Khodary</span>
+                <span class="brand-sub">MITHAQ PLATFORM</span>
+            </div>
+        </a>
 
-        <text x="100" y="175" text-anchor="middle" fill="#E4C567" font-size="11" font-family="Cairo">هيئة الاعتماد الأكاديمي</text>
-      </svg>
-    </div>
-  </div>
-</section>
+        <nav>
+            <a href="index.html" class="active">الرئيسية</a>
+            <a href="services.html">خدماتنا</a>
+            <a href="contact.html">اتصل بنا</a>
+        </nav>
+    </header>
 
-<section class="stats">
-  <div class="wrap stats-grid">
-    <div class="stat-item"><div class="stat-num" data-target="46">46</div><div class="stat-label">مؤسسة تعليمية مرافَقة</div></div>
-    <div class="stat-item"><div class="stat-num" data-target="212">212</div><div class="stat-label">برنامج أكاديمي معتمَد</div></div>
-    <div class="stat-item"><div class="stat-num" data-target="98">98</div><div class="stat-label">% نسبة اجتياز زيارات التقويم</div></div>
-    <div class="stat-item"><div class="stat-num" data-target="9">9</div><div class="stat-label">سنوات خبرة ميدانية</div></div>
-  </div>
-</section>
+    <!-- منطقة الترحيب -->
+    <main class="hero">
+        <h1>مرحباً بك في منصة ميثاق</h1>
+        <p>نقدم أفضل الحلول والخدمات الرقمية المتكاملة بأعلى جودة واحترافية.</p>
+        <a href="contact.html" class="hero-btn">تواصل معنا الآن</a>
+    </main>
 
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">ركائز عملنا</span>
-      <h2>ثلاث ركائز نبني عليها كل مشروع اعتماد</h2>
-      <p>منهجية موحّدة تُطبَّق بحسب خصوصية كل مؤسسة وكل برنامج تعليمي.</p>
-    </div>
-    <div class="pillars-grid">
-      <div class="pillar-card">
-        <div class="pillar-num">01 — المعايير</div>
-        <h3>مواءمة مع المعايير المرجعية</h3>
-        <p>نُحلّل واقع البرنامج أمام المعايير الأكاديمية القياسية، ونحدّد فجوات التوثيق قبل أي زيارة تقويم.</p>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-num">02 — التوثيق</div>
-        <h3>ملفات تقويم ذاتي جاهزة</h3>
-        <p>إعداد دليل التقويم والاعتماد للبرنامج التعليمي وفق نموذج موحّد يسهّل عمل لجنة المراجعة.</p>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-num">03 — الاستدامة</div>
-        <h3>تحسين مستمر بعد الاعتماد</h3>
-        <p>خطط متابعة سنوية لمؤشرات الأداء تضمن بقاء البرنامج ضمن نطاق الاعتماد بعد صدور القرار.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- قسم المميزات -->
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3>سرعة وكفاءة</h3>
+            <p>نضمن إنجاز الخدمات بأعلى كفاءة وأسرع وقت لتلبية احتياجاتك.</p>
+        </div>
 
-<section class="about-section">
-  <div class="wrap split">
-    <div class="doc-card">
-      <h4>حالة ملف الاعتماد</h4>
-      <div class="doc-row"><span>تحليل الفجوة</span><span>مكتمل</span></div>
-      <div class="doc-row"><span>توثيق المعايير المرجعية</span><span>92%</span></div>
-      <div class="doc-row"><span>ملف التقويم الذاتي</span><span>قيد المراجعة</span></div>
-      <div class="doc-row"><span>زيارة لجنة الاعتماد</span><span>مجدولة</span></div>
-    </div>
-    <div>
-      <div class="section-head">
-        <span class="eyebrow">لماذا ميثاق</span>
-        <h2>فريق يعرف لغة لجان الاعتماد</h2>
-        <p>خبرة ميدانية مباشرة في إعداد وتقديم ملفات الاعتماد المؤسسي والبرامجي.</p>
-      </div>
-      <ul class="checklist">
-        <li><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="none" stroke="#E4C567"/><path d="M6 10l3 3 5-6" stroke="#E4C567" fill="none" stroke-width="1.6"/></svg> نماذج معايير أكاديمية مرجعية جاهزة للتخصيص</li>
-        <li><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="none" stroke="#E4C567"/><path d="M6 10l3 3 5-6" stroke="#E4C567" fill="none" stroke-width="1.6"/></svg> ورش تأهيل لأعضاء هيئة التدريس قبل زيارة التقويم</li>
-        <li><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="none" stroke="#E4C567"/><path d="M6 10l3 3 5-6" stroke="#E4C567" fill="none" stroke-width="1.6"/></svg> متابعة مؤشرات جودة الخريجين بعد التخرج</li>
-      </ul>
-    </div>
-  </div>
-</section>
+        <div class="feature-card">
+            <div class="feature-icon">💻</div>
+            <h3>حلول متطورة</h3>
+            <p>نعتمد على أحدث التقنيات والمعايير البرمجية لتطوير مشاريعك.</p>
+        </div>
 
-<section class="cta">
-  <div class="wrap">
-    <h2>جاهزون لمرافقة برنامجكم نحو الاعتماد؟</h2>
-    <p>احجز جلسة تقييم أولية مجانية مع فريق ميثاق خلال هذا الأسبوع.</p>
-    <a href="contact.html" class="btn btn-gold">تواصل مع الفريق</a>
-  </div>
-</section>
+        <div class="feature-card">
+            <div class="feature-icon">🎧</div>
+            <h3>دعم وتواصل مستمر</h3>
+            <p>فريقنا جاهز دائماً للاستفسارات وتقديم الدعم المباشر ومتابعة الشكاوى.</p>
+        </div>
+    </section>
 
-<footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div>
-      <h5>ميثاق</h5>
-      <p>منصة استشارية متخصصة في الاعتماد المؤسسي والبرامجي وجودة التعليم العالي.</p>
-    </div>
-    <div>
-      <h5>روابط</h5>
-      <ul>
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="services.html">خدمات الاعتماد</a></li>
-        <li><a href="contact.html">تواصل معنا</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>تواصل</h5>
-      <ul>
-        <li><a href="mailto:mohamedalkodry1@gmail.com">mohamedalkodry1@gmail.com</a></li>
-        <li><a href="tel:+201021904453" dir="ltr">+20 1021904453</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="wrap footer-bottom">© <span id="year"></span> ميثاق لخدمات الاعتماد الأكاديمي</div>
-</footer>
+    <!-- الفوتر -->
+    <footer>
+        &copy; <span id="year">2026</span> جميع الحقوق محفوظة لموقع ميثاق.
+    </footer>
 
-<button class="back-top" id="backTop" aria-label="العودة للأعلى">↑</button>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 
-<script src="js/script.js"></script>
 </body>
 </html>

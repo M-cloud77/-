@@ -1,115 +1,327 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تواصل معنا | ميثاق</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا - منصة ميثاق</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            direction: rtl;
+        }
+
+        /* الهيدر */
+        header {
+            background: #0f172a;
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-right: 15px;
+            font-size: 15px;
+        }
+
+        nav a.active {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        /* كارت النموذج الرئيسي */
+        .main-container {
+            max-width: 520px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* أزرار التبويبات */
+        .tab-menu {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 25px;
+            background: #f1f5f9;
+            padding: 5px;
+            border-radius: 8px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px 5px;
+            border: none;
+            background: transparent;
+            color: #64748b;
+            font-weight: bold;
+            font-size: 13px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background: #ffffff;
+            color: #0f172a;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* حقول المدخلات */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #334155;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: #0284c7;
+        }
+
+        /* زر الإرسال */
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* ألوان التمييز لكل نموذج */
+        .theme-complaint { background-color: #dc2626; }
+        .theme-service { background-color: #0d9488; }
+        .theme-general { background-color: #0284c7; }
+
+        /* صندوق الإشعارات */
+        #alertBox {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            color: #64748b;
+        }
+    </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="brand">
-      <svg class="seal-mini" viewBox="0 0 100 100" fill="none">
-        <circle cx="50" cy="50" r="46" stroke="#E4C567" stroke-width="4"/>
-        <circle cx="50" cy="50" r="34" stroke="#E4C567" stroke-width="2"/>
-        <path d="M50 30 L56 46 L73 46 L59 56 L64 72 L50 62 L36 72 L41 56 L27 46 L44 46 Z" fill="#E4C567"/>
-      </svg>
-      ميثاق
-    </a>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="services.html">خدمات الاعتماد</a></li>
-        <li><a href="contact.html">تواصل معنا</a></li>
-      </ul>
-    </nav>
-    <button class="nav-toggle" aria-label="فتح القائمة"><span></span></button>
-  </div>
-</header>
+    <header>
+        <div class="logo">ميثاق</div>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="services.html">خدماتنا</a>
+            <a href="contact.html" class="active">اتصل بنا</a>
+        </nav>
+    </header>
 
-<section class="page-header">
-  <div class="wrap">
-    <span class="eyebrow">تواصل معنا</span>
-    <h1>لنبدأ مسار الاعتماد معًا</h1>
-    <p>عبّئ النموذج وسيتواصل معك أحد مستشاري الجودة خلال يومي عمل.</p>
-  </div>
-</section>
+    <div class="main-container">
+        <!-- أزرار اختيار نوع التواصل -->
+        <div class="tab-menu">
+            <button type="button" class="tab-btn active" id="tab-c" onclick="renderForm('complaint')">🚨 تقديم شكوى</button>
+            <button type="button" class="tab-btn" id="tab-s" onclick="renderForm('service')">💼 طلب خدمة</button>
+            <button type="button" class="tab-btn" id="tab-g" onclick="renderForm('general')">💬 استفسار عام</button>
+        </div>
 
-<section>
-  <div class="wrap contact-grid">
-    <div class="info-card">
-      <h3>بيانات التواصل</h3>
-      <div class="info-row">📍 القاهرة الجديدة — جمهورية مصر العربية</div>
-      <div class="info-row">✉️ <a href="mailto:mohamedalkodry1@gmail.com">mohamedalkodry1@gmail.com</a></div>
-      <div class="info-row">📞 <a href="tel:+201021904453" dir="ltr">+20 1021904453</a></div>
-      <div class="info-row">🕐 الأحد–الخميس، 9 صباحًا – 4 عصرًا</div>
+        <!-- منطقة طباعة الحقول ديناميكياً -->
+        <div id="dynamicForm"></div>
+
+        <!-- صندوق حالة الإرسال -->
+        <div id="alertBox"></div>
     </div>
 
-    <div>
-      <div id="formStatus" class="form-status"></div>
-      <form id="contactForm" novalidate>
-        <div class="form-field">
-          <label for="fullName">الاسم بالكامل</label>
-          <input type="text" id="fullName" name="fullName" required>
-        </div>
-        <div class="form-field">
-          <label for="email">البريد الإلكتروني</label>
-          <input type="email" id="email" name="email" required>
-          <p class="form-note">سنستخدم بريدك فقط للرد على طلبك.</p>
-        </div>
-        <div class="form-field">
-          <label for="institution">اسم المؤسسة التعليمية</label>
-          <input type="text" id="institution" name="institution" required>
-        </div>
-        <div class="form-field">
-          <label for="serviceType">نوع الخدمة المطلوبة</label>
-          <select id="serviceType" name="serviceType" required>
-            <option value="" disabled selected>اختر الخدمة المطلوبة...</option>
-            <option value="gap">تحليل فجوة</option>
-            <option value="self-study">إعداد ملف تقويم ذاتي</option>
-            <option value="training">ورشة تأهيل</option>
-            <option value="tracking">متابعة جودة خريجين</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label for="message">تفاصيل الطلب</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-gold">إرسال الطلب</button>
-      </form>
-    </div>
-  </div>
-</section>
+    <footer>
+        &copy; <span id="year">2026</span> جميع الحقوق محفوظة لموقع ميثاق.
+    </footer>
 
-<footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div>
-      <h5>ميثاق</h5>
-      <p>منصة استشارية متخصصة في الاعتماد المؤسسي والبرامجي وجودة التعليم العالي.</p>
-    </div>
-    <div>
-      <h5>روابط</h5>
-      <ul>
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="services.html">خدمات الاعتماد</a></li>
-        <li><a href="contact.html">تواصل معنا</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>تواصل</h5>
-      <ul>
-        <li><a href="mailto:mohamedalkodry1@gmail.com">mohamedalkodry1@gmail.com</a></li>
-        <li><a href="tel:+201021904453" dir="ltr">+20 1021904453</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="wrap footer-bottom">© <span id="year"></span> ميثاق لخدمات الاعتماد الأكاديمي</div>
-</footer>
+    <script>
+        const TELEGRAM_TOKEN = '8752516345:AAGLQrx-MxhQqytmhwy_v08d5YLf0ibfCvA';
+        const TELEGRAM_CHAT_ID = '-1003592799607';
 
-<button class="back-top" id="backTop" aria-label="العودة للأعلى">↑</button>
+        // دالة عرض وتعديل النموذج
+        function renderForm(type) {
+            const formContainer = document.getElementById('dynamicForm');
+            const alertBox = document.getElementById('alertBox');
+            alertBox.style.display = 'none';
 
-<script src="js/script.js"></script>
+            // ضبط الأزرار النشطة
+            document.getElementById('tab-c').className = 'tab-btn' + (type === 'complaint' ? ' active' : '');
+            document.getElementById('tab-s').className = 'tab-btn' + (type === 'service' ? ' active' : '');
+            document.getElementById('tab-g').className = 'tab-btn' + (type === 'general' ? ' active' : '');
+
+            if (type === 'complaint') {
+                formContainer.innerHTML = `
+                    <h3 style="color:#dc2626; margin-bottom:15px; font-size:16px;">🚨 تقديم شكوى أو اقتراح</h3>
+                    <div class="form-group">
+                        <label>الاسم الكامل:</label>
+                        <input type="text" id="c_name" placeholder="أدخل اسمك">
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الهاتف:</label>
+                        <input type="tel" id="c_phone" placeholder="01xxxxxxxx">
+                    </div>
+                    <div class="form-group">
+                        <label>تفاصيل الشكوى:</label>
+                        <textarea id="c_msg" rows="4" placeholder="اكتب تفاصيل الشكوى..."></textarea>
+                    </div>
+                    <button type="button" class="btn-submit theme-complaint" onclick="handleSend('complaint')">إرسال الشكوى</button>
+                `;
+            } else if (type === 'service') {
+                formContainer.innerHTML = `
+                    <h3 style="color:#0d9488; margin-bottom:15px; font-size:16px;">💼 طلب خدمة جديدة</h3>
+                    <div class="form-group">
+                        <label>الاسم الكامل:</label>
+                        <input type="text" id="s_name" placeholder="أدخل اسمك">
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الهاتف / الواتساب:</label>
+                        <input type="tel" id="s_phone" placeholder="01xxxxxxxx">
+                    </div>
+                    <div class="form-group">
+                        <label>البريد الإلكتروني:</label>
+                        <input type="email" id="s_email" placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>تفاصيل الخدمة المطلوبة:</label>
+                        <textarea id="s_msg" rows="4" placeholder="اشرح الخدمة أو المشروع المطلوب..."></textarea>
+                    </div>
+                    <button type="button" class="btn-submit theme-service" onclick="handleSend('service')">إرسال طلب الخدمة</button>
+                `;
+            } else if (type === 'general') {
+                formContainer.innerHTML = `
+                    <h3 style="color:#0284c7; margin-bottom:15px; font-size:16px;">💬 استفسار عام</h3>
+                    <div class="form-group">
+                        <label>الاسم الكامل:</label>
+                        <input type="text" id="g_name" placeholder="أدخل اسمك">
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الهاتف:</label>
+                        <input type="tel" id="g_phone" placeholder="01xxxxxxxx">
+                    </div>
+                    <div class="form-group">
+                        <label>البريد الإلكتروني:</label>
+                        <input type="email" id="g_email" placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>الرسالة / الاستفسار:</label>
+                        <textarea id="g_msg" rows="4" placeholder="اكتب استفسارك هنا..."></textarea>
+                    </div>
+                    <button type="button" class="btn-submit theme-general" onclick="handleSend('general')">إرسال الاستفسار</button>
+                `;
+            }
+        }
+
+        // دالة التحقق والإرسال للتلجرام
+        function handleSend(type) {
+            const alertBox = document.getElementById('alertBox');
+            alertBox.style.display = 'block';
+            let text = '';
+
+            if (type === 'complaint') {
+                const name = document.getElementById('c_name').value.trim();
+                const phone = document.getElementById('c_phone').value.trim();
+                const msg = document.getElementById('c_msg').value.trim();
+
+                if (!name || !phone || !msg) {
+                    showAlert('❌ يرجى كِتابة الاسم والرقم وتفاصيل الشكوى!', '#fee2e2', '#b91c1c');
+                    return;
+                }
+                text = `🚨 [شكوى جديدة]\n\n👤 الاسم: ${name}\n📞 الهاتف: ${phone}\n💬 الرسالة:\n${msg}`;
+            } 
+            else if (type === 'service') {
+                const name = document.getElementById('s_name').value.trim();
+                const phone = document.getElementById('s_phone').value.trim();
+                const email = document.getElementById('s_email').value.trim();
+                const msg = document.getElementById('s_msg').value.trim();
+
+                if (!name || !phone || !email || !msg) {
+                    showAlert('❌ يرجى ملء جميع الحقول (الاسم، الهاتف، البريد، التفاصيل)!', '#fee2e2', '#b91c1c');
+                    return;
+                }
+                text = `💼 [طلب خدمة جديد]\n\n👤 الاسم: ${name}\n📞 الهاتف: ${phone}\n📧 البريد: ${email}\n💬 التفاصيل:\n${msg}`;
+            } 
+            else if (type === 'general') {
+                const name = document.getElementById('g_name').value.trim();
+                const phone = document.getElementById('g_phone').value.trim();
+                const email = document.getElementById('g_email').value.trim();
+                const msg = document.getElementById('g_msg').value.trim();
+
+                if (!name || !phone || !email || !msg) {
+                    showAlert('❌ يرجى ملء جميع الحقول (الاسم، الهاتف، البريد، الرسالة)!', '#fee2e2', '#b91c1c');
+                    return;
+                }
+                text = `💬 [استفسار عام]\n\n👤 الاسم: ${name}\n📞 الهاتف: ${phone}\n📧 البريد: ${email}\n💬 الاستفسار:\n${msg}`;
+            }
+
+            // إرسال الطلب لـ Telegram API
+            const apiUrl = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(text)}`;
+            const popWin = window.open(apiUrl, '_blank', 'width=100,height=100,top=2000,left=2000');
+
+            showAlert('✅ تم الإرسال بنجاح!', '#dcfce7', '#15803d');
+
+            setTimeout(() => {
+                if (popWin) popWin.close();
+                renderForm(type);
+            }, 1000);
+        }
+
+        function showAlert(msg, bgColor, txtColor) {
+            const alertBox = document.getElementById('alertBox');
+            alertBox.style.backgroundColor = bgColor;
+            alertBox.style.color = txtColor;
+            alertBox.textContent = msg;
+        }
+
+        // تشغيل البداية
+        renderForm('complaint');
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
